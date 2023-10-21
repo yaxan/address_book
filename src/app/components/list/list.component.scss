@@ -1,24 +1,24 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 20px;
-    box-sizing: border-box;
-  }
+  display: flex;
+  flex-direction: column; /* makes sure children are vertically stacked */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
   
   .list {
     width: 90%;
     max-width: 1200px; 
-    max-height: 85vh; 
+    max-height: 75vh; 
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     background: white;
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     border-radius: 8px;
-    position: relative;
-    padding-bottom: 70px;
+    position: relative;    
     &.loading {
       .content-container {
         visibility: hidden; // Hide the content while keeping the space during loading
@@ -36,14 +36,11 @@
     align-items: center;
     justify-content: center;
   }
-  .content-container {
-    min-height: 50vh;
-    
-  }
+
   .pagination-container {
-    position: absolute; 
-    bottom: 0;
-    width: 100%; 
+    width: calc(90% - 40px); /* Adjust based on your desired width and accounting for padding */
+    max-width: 1160px; /* Adjust based on your desired width */
+    box-sizing: border-box; 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -113,6 +110,7 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
+      margin-top: auto;
     }
   
     .user-initials {
