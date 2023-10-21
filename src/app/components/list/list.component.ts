@@ -12,8 +12,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
+  allUsers: User[] = [];
   users: User[] = [];
   currentPage = 1;
+  pageSize = 10;  // Number of items per page
   isLoading = true;
   isXSmall: Observable<boolean>;
   isSmall: Observable<boolean>;
@@ -41,25 +43,33 @@ export class ListComponent implements OnInit {
     this.router.navigate(['/details', user.login.uuid]);
   }
 
+  paginateUsers(): void {
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    this.users = this.allUsers.slice(startIndex, startIndex + this.pageSize);
+  }
+
   fetchUsers(): void {
     this.isLoading = true;
-    this.userService.fetchUsers(this.currentPage).subscribe(data => {
-      this.users = data.results;
-      this.userService.setUsers(this.users);
+    this.userService.fetchUsers().subscribe(users => {
+      this.allUsers = users;
+      this.userService.setUsers(this.allUsers);  // If you still need to store them in local storage
+      this.paginateUsers();
       this.isLoading = false;
     });
   }
   
 
   nextPage(): void {
-    this.currentPage++;
-    this.fetchUsers();
+    if ((this.currentPage * this.pageSize) < this.allUsers.length) {
+      this.currentPage++;
+      this.paginateUsers();
+    }
   }
 
   prevPage(): void {
     if (this.currentPage > 1) {
       this.currentPage--;
-      this.fetchUsers();
+      this.paginateUsers();
     }
   }
 

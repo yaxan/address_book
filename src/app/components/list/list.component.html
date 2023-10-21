@@ -21,6 +21,6 @@
     <div class="pagination-container" fxLayout="row" fxLayoutAlign="space-between center">
         <button mat-flat-button color="primary" (click)="prevPage()" [disabled]="currentPage === 1">Prev</button>
             <div class="page-indicator">{{ currentPage }}</div>
-        <button mat-flat-button color="primary" (click)="nextPage()">Next</button>
+        <button mat-flat-button color="primary" (click)="nextPage()" [disabled]="currentPage === 5">Next</button>
     </div>
 </div>
