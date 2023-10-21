@@ -16,6 +16,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatIconModule,
     MatMenuModule,
     MatToolbarModule,
+    MatProgressSpinnerModule,
     HttpClientModule,
     BrowserAnimationsModule
   ],

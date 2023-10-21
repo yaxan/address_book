@@ -4,14 +4,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component'; // make sure the path is correct
 import { FooterComponent } from './components/footer/footer.component'; // make sure the path is correct
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        MatToolbarModule
-
+        MatToolbarModule,
+        MatProgressSpinnerModule,
       ],
       declarations: [
         AppComponent,

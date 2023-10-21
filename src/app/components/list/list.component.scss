@@ -19,8 +19,28 @@
     border-radius: 8px;
     position: relative;
     padding-bottom: 70px;
+    &.loading {
+      .content-container {
+        visibility: hidden; // Hide the content while keeping the space during loading
+      }
+    }
   }
 
+  .loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.8); // Optional: Add a background overlay
+  }
+  .content-container {
+    min-height: 50vh;
+    
+  }
   .pagination-container {
     position: absolute; 
     bottom: 0;

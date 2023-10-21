@@ -10,7 +10,11 @@ import { Router } from '@angular/router';
   selector: 'app-list',
   template: `
     <div class="container" fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
-      <mat-card class="list">
+      <mat-card class="list" [class.loading]="isLoading">
+      <div *ngIf="isLoading" class="loading-overlay">
+        <mat-spinner></mat-spinner>
+      </div>
+      <div class="content-container">
       <mat-grid-list cols="3" rowHeight="2:1" gutterSize="12px" [cols]="(isXSmall | async) ? 1 : (isSmall | async) ? 2 : 3">
       <mat-grid-tile *ngFor="let user of users" class="user-card" (click)="viewDetails(user)">
         <div  class="clickable-tile" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
@@ -23,6 +27,7 @@ import { Router } from '@angular/router';
       </div>
     </mat-grid-tile>
       </mat-grid-list>
+      </div>
         <div class="pagination-container" fxLayout="row" fxLayoutAlign="space-between center">
           <button mat-flat-button color="primary" (click)="prevPage()" [disabled]="currentPage === 1">Prev</button>
           <div class="page-indicator">{{ currentPage }}</div>
@@ -36,6 +41,7 @@ import { Router } from '@angular/router';
 export class ListComponent implements OnInit {
   users: User[] = [];
   currentPage = 1;
+  isLoading = true;
   isXSmall: Observable<boolean>;
   isSmall: Observable<boolean>;
 
@@ -63,11 +69,14 @@ export class ListComponent implements OnInit {
   }
 
   fetchUsers(): void {
+    this.isLoading = true;
     this.userService.fetchUsers(this.currentPage).subscribe(data => {
       this.users = data.results;
       this.userService.setUsers(this.users);
+      this.isLoading = false;
     });
   }
+  
 
   nextPage(): void {
     this.currentPage++;
