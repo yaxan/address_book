@@ -46,12 +46,12 @@ describe('UserService', () => {
       ]
     };
     
-    service.fetchUsers().subscribe(users => {
+    service.fetchUsers(1).subscribe(users => {
       expect(users.results.length).toBe(2);
       expect(users).toEqual(dummyUsers);
     });
 
-    const request = httpMock.expectOne('https://randomuser.me/api/?results=10&seed=nuvalence');
+    const request = httpMock.expectOne('https://randomuser.me/api/?seed=nuvalence&page=1&results=10');
     expect(request.request.method).toBe('GET');
     request.flush(dummyUsers);
   });

@@ -1,4 +1,4 @@
-// src/app/user.service.ts
+// src/app/services/user.service.ts
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -9,20 +9,26 @@ import { User } from '../models/user.model';
   providedIn: 'root',
 })
 export class UserService {
-  private apiUrl = 'https://randomuser.me/api/?results=10&seed=nuvalence';
-  private users: User[] = [];
+  private apiUrl = 'https://randomuser.me/api/?seed=nuvalence';
 
   constructor(private http: HttpClient) {}
 
-  fetchUsers(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);
+  fetchUsers(page: number): Observable<any> {
+    const url = `${this.apiUrl}&page=${page}&results=10`;
+    return this.http.get<any>(url);
   }
 
   setUsers(users: User[]): void {
-    this.users = users;
+    localStorage.setItem('users', JSON.stringify(users));
+  }
+
+  getUsers(): User[] {
+    const users = localStorage.getItem('users');
+    return users ? JSON.parse(users) : [];
   }
 
   getUserById(id: string): User | undefined {
-    return this.users.find(user => user.login.uuid === id);
+    const users = this.getUsers();
+    return users.find(user => user.login.uuid === id);
   }
 }
