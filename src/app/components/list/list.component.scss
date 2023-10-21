@@ -8,6 +8,14 @@
   box-sizing: border-box;
 }
 
+::ng-deep .user-name h2 {
+  margin: 0 !important;
+}
+
+::ng-deep .user-name h3 {
+  margin: 0 !important;
+}
+
 .list {
   width: 90%;
   max-width: 1200px;
@@ -16,8 +24,7 @@
   display: flex;
   flex-direction: column;
   background: white;
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  border-radius: 8px;
+  border-radius: 16px;
   position: relative;
   &.loading {
     .content-container {
@@ -46,14 +53,14 @@
   align-items: center;
   padding: 20px;
   background: #f5f5f5;
-  border-top: 1px solid #ddd;
-
   .page-indicator {
     font-weight: bold;
   }
 }
 
 .user-card {
+  border-radius: 18px;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,25 +75,16 @@
 }
 
 .user-initials {
-  border-radius: 50%;
-  background-color: #673ab7;
-  color: white;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 15px;
-  font-size: 1.2em;
-  font-weight: bold;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  margin-right: 15px;
+  margin-bottom: 0;
 }
 
 .user-name {
-  margin-top: 15px;
+  text-align: left;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -96,23 +94,58 @@
 .clickable-tile {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
+  margin-left: 40px;
   width: 100%;
 }
+
+.user-image {
+  border-radius: 50%;
+  width: 80px;
+  height: 80x; 
+  object-fit: cover;
+}
+
+@media (max-width: 990px) {
+  .user-image {
+    width: 50px;
+    height: 50px; 
+    object-fit: cover;
+  }
+  .clickable-tile {
+    margin-left: 5px;
+  }
+
+  .user-name h2 {
+    font-size: 18px; /* Example size */
+  }
+}
+
 
 @media (max-width: 600px) {
   .clickable-tile {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-top: auto;
   }
 
   .user-initials {
-    margin-bottom: 0px;
-    margin-right: 0;
+    margin: 0;
   }
   .user-name {
-    margin-top: 0px;
+    text-align: center;
+  }
+  .user-image {
+    width: 50px;
+    height: 50px; 
+    object-fit: cover;
+  }
+
+  .clickable-tile {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-left: 0px;
+    width: 100%;
   }
 }

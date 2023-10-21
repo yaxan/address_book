@@ -15,10 +15,11 @@ export class ListComponent implements OnInit {
   allUsers: User[] = [];
   users: User[] = [];
   currentPage = 1;
-  pageSize = 10; // Number of items per page
+  pageSize = 10;
   isLoading = true;
   isXSmall: Observable<boolean>;
   isSmall: Observable<boolean>;
+  isMedium: Observable<boolean>;
 
   constructor(
     private userService: UserService,
@@ -31,6 +32,11 @@ export class ListComponent implements OnInit {
     );
 
     this.isSmall = this.breakpointObserver.observe(Breakpoints.Small).pipe(
+      map((result) => result.matches),
+      shareReplay(),
+    );
+
+    this.isMedium = this.breakpointObserver.observe(Breakpoints.Medium).pipe(
       map((result) => result.matches),
       shareReplay(),
     );
