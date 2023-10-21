@@ -1,14 +1,15 @@
-<div
+<section
   class="container"
   fxLayout="column"
   fxLayoutAlign="center center"
   fxFlexFill
 >
-  <mat-card class="list" [class.loading]="isLoading">
-    <div *ngIf="isLoading" class="loading-overlay">
+  <article class="list" [class.loading]="isLoading">
+    <aside *ngIf="isLoading" class="loading-overlay">
       <mat-spinner></mat-spinner>
-    </div>
-    <div class="content-container">
+    </aside>
+
+    <section class="content-container">
       <mat-grid-list
         cols="2"
         rowHeight="3:1"
@@ -26,18 +27,20 @@
             fxLayoutAlign="start center"
             fxLayoutGap="20px"
           >
-            <div class="user-initials">
+            <figure class="user-initials">
               {{ user.name.first[0] }}{{ user.name.last[0] }}
-            </div>
-            <div class="user-name">
+            </figure>
+
+            <header class="user-name">
               <h2>{{ user.name.first }} {{ user.name.last }}</h2>
-            </div>
+            </header>
           </div>
         </mat-grid-tile>
       </mat-grid-list>
-    </div>
-  </mat-card>
-  <div
+    </section>
+  </article>
+
+  <nav
     class="pagination-container"
     fxLayout="row"
     fxLayoutAlign="space-between center"
@@ -50,7 +53,8 @@
     >
       Prev
     </button>
-    <div class="page-indicator">{{ currentPage }}</div>
+
+    <span class="page-indicator">{{ currentPage }}</span>
     <button
       mat-flat-button
       color="primary"
@@ -59,5 +63,5 @@
     >
       Next
     </button>
-  </div>
-</div>
+  </nav>
+</section>
