@@ -13,14 +13,18 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
-    DetailsComponent
+    DetailsComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +34,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatGridListModule,
     MatIconModule,
     MatMenuModule,
+    MatToolbarModule,
     HttpClientModule,
     BrowserAnimationsModule
   ],

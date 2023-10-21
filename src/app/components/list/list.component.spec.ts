@@ -1,10 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ListComponent } from './ListComponent';
+import { ListComponent } from './list.component';
 import { UserService } from '../../services/user.service';
 import { of } from 'rxjs';
 import { User } from '../../models/user.model';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 describe('ListComponent', () => {
   let component: ListComponent;
@@ -33,7 +36,10 @@ describe('ListComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule,
-        RouterTestingModule
+        RouterTestingModule,
+        MatCardModule,
+        MatGridListModule,
+        MatToolbarModule
       ],
       declarations: [ ListComponent ],
       providers: [ UserService ]

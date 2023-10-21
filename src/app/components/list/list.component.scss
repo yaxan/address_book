@@ -39,44 +39,71 @@
   
   .user-card {
     display: flex;
-    align-items: center;
-    padding: 20px;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center;
     transition: background-color 0.3s;
+    background-color: #f1f1f1;
   
     &:hover {
       background-color: #f5f5f5;
       cursor: pointer;
     }
   
-    .user-initials {
-      border-radius: 50%;
-      background-color: #673ab7;
-      color: white;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 15px;
-      font-size: 1.2em;
-      font-weight: bold;
-      flex-shrink: 0;
-      flex-basis: 40px; /* added */
+
+  }
+
+  .user-initials {
+    border-radius: 50%;
+    background-color: #673ab7;
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    -webkit-user-select: none;  /* Chrome, Safari, and Opera */
+    -moz-user-select: none;     /* Firefox */
+    -ms-user-select: none;      /* Internet Explorer/Edge */
+    user-select: none;          /* Disable selection */
+    
+    
+  }
+
+  .user-name {
+    margin-top: 15px; /* Replace with whatever value brings the alignment to your satisfaction */
+    -webkit-user-select: none;  /* Chrome, Safari, and Opera */
+    -moz-user-select: none;     /* Firefox */
+    -ms-user-select: none;      /* Internet Explorer/Edge */
+    user-select: none;
+  }
+
+  .clickable-tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  @media (max-width: 600px) {
+    
+    .clickable-tile {
+      flex-direction: column;
+      align-items: center; /* Center items horizontally in mobile view */
+      text-align: center;
     }
   
-    .user-info {
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-      flex-basis: calc(100% - 55px); /* added */
-  
-      h2 {
-        margin: 0 0 5px 0;
-      }
-  
-      p {
-        margin: 0;
-      }
+    .user-initials {
+      margin-bottom: 0px;
+      margin-right: 0; 
+    }
+    .user-name {
+      margin-top: 0px; /* Replace with whatever value brings the alignment to your satisfaction */
     }
   }
+  
+  
   

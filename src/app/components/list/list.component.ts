@@ -12,18 +12,16 @@ import { Router } from '@angular/router';
     <div class="container" fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
       <mat-card class="list">
       <mat-grid-list cols="3" rowHeight="2:1" gutterSize="12px" [cols]="(isXSmall | async) ? 1 : (isSmall | async) ? 2 : 3">
-        <mat-grid-tile *ngFor="let user of users" class="user-card">
-          <!-- Use a div with a click event to make the tile clickable -->
-          <div (click)="viewDetails(user)" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px" class="clickable-tile">
-            <div class="user-initials">
-              {{ user.name.first[0] }}{{ user.name.last[0] }}
-            </div>
-            <div fxFlex fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="10px">
-              <h2>{{ user.name.first }} {{ user.name.last }}</h2>
-              <p>{{ user.email }}</p>
-            </div>
-          </div>
-        </mat-grid-tile>
+      <mat-grid-tile *ngFor="let user of users" class="user-card" (click)="viewDetails(user)">
+        <div  class="clickable-tile" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+        <div class="user-initials">
+          {{ user.name.first[0] }}{{ user.name.last[0] }}
+        </div>
+        <div class="user-name">
+          <h2>{{ user.name.first }} {{ user.name.last }}</h2>
+        </div>
+      </div>
+    </mat-grid-tile>
       </mat-grid-list>
         <div class="pagination-container" fxLayout="row" fxLayoutAlign="space-between center">
           <button mat-flat-button color="primary" (click)="prevPage()" [disabled]="currentPage === 1">Prev</button>
