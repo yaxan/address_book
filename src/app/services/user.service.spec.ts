@@ -34,14 +34,24 @@ describe('UserService', () => {
           name: { title: 'mr', first: 'john', last: 'doe' },
           email: 'john.doe@example.com',
           phone: '123-456-7890',
-          location: { city: 'Anytown', state: 'Anystate', country: 'Country' }
+          location: { city: 'Anytown', state: 'Anystate', country: 'Country' },
+          picture: {
+            large: "https://randomuser.me/api/portraits/men/75.jpg",
+            medium: "https://randomuser.me/api/portraits/med/men/75.jpg",
+            thumbnail: "https://randomuser.me/api/portraits/thumb/men/75.jpg"
+          }
         },
         {
           login: { uuid: '2' },
           name: { title: 'ms', first: 'jane', last: 'doe' },
           email: 'jane.doe@example.com',
           phone: '123-456-7891',
-          location: { city: 'Anytown', state: 'Somestate', country: 'Country' }
+          location: { city: 'Anytown', state: 'Somestate', country: 'Country' },
+          picture: {
+            large: "https://randomuser.me/api/portraits/men/75.jpg",
+            medium: "https://randomuser.me/api/portraits/med/men/75.jpg",
+            thumbnail: "https://randomuser.me/api/portraits/thumb/men/75.jpg"
+          }
         },
       ]
     };

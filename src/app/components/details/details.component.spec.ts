@@ -14,7 +14,12 @@ describe('DetailsComponent', () => {
     name: { title: 'mr', first: 'brad', last: 'gibson' },
     phone: '011-962-7516',
     email: 'brad.gibson@example.com',
-    location: { city: 'kilcoole', state: 'waterford', country: 'ireland' }
+    location: { city: 'kilcoole', state: 'waterford', country: 'ireland' },
+    picture: {
+      large: "https://randomuser.me/api/portraits/men/75.jpg",
+      medium: "https://randomuser.me/api/portraits/med/men/75.jpg",
+      thumbnail: "https://randomuser.me/api/portraits/thumb/men/75.jpg"
+    }
   };
 
   beforeEach(async () => {

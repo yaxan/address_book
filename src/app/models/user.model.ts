@@ -14,4 +14,9 @@ export interface User {
     state: string;
     country: string;
   };
+  picture: {
+    large: string;
+    medium: string;
+    thumbnail: string;
+  }
 }
