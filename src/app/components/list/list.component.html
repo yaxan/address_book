@@ -4,6 +4,15 @@
   fxLayoutAlign="center center"
   fxFlexFill
 >
+  <mat-form-field appearance="fill">
+    <mat-label>Search</mat-label>
+    <input
+      matInput
+      type="text"
+      [formControl]="searchControl"
+      placeholder="Type to search..."
+    />
+  </mat-form-field>
   <article class="list" [class.loading]="isLoading">
     <aside *ngIf="isLoading" class="loading-overlay">
       <mat-spinner></mat-spinner>
@@ -17,7 +26,7 @@
         [cols]="(isXSmall | async) ? 1 : 2"
       >
         <mat-grid-tile
-          *ngFor="let user of users"
+          *ngFor="let user of displayedUsers"
           class="user-card"
           (click)="viewDetails(user)"
         >
@@ -73,7 +82,7 @@
       mat-flat-button
       color="primary"
       (click)="nextPage()"
-      [disabled]="currentPage === 5"
+      [disabled]="currentPage === 5 || users.length < 10"
     >
       Next
     </button>
