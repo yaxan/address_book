@@ -28,12 +28,22 @@
             fxLayoutGap="20px"
           >
             <figure class="user-initials">
-                <img [src]="user.picture.large" class="user-image" alt="User Image" />
+              <img
+                [src]="user.picture.large"
+                class="user-image"
+                alt="User Image"
+              />
             </figure>
 
             <header class="user-name">
               <h2>{{ user.name.first }} {{ user.name.last }}</h2>
-              <ng-container *ngIf="(isMedium | async) === false && (isSmall | async) === false && (isXSmall | async) === false">
+              <ng-container
+                *ngIf="
+                  (isMedium | async) === false &&
+                  (isSmall | async) === false &&
+                  (isXSmall | async) === false
+                "
+              >
                 <h3>{{ user.phone }}</h3>
                 <h3>{{ user.email }}</h3>
               </ng-container>

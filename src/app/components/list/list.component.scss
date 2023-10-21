@@ -102,14 +102,14 @@
 .user-image {
   border-radius: 50%;
   width: 80px;
-  height: 80x; 
+  height: 80x;
   object-fit: cover;
 }
 
 @media (max-width: 990px) {
   .user-image {
     width: 50px;
-    height: 50px; 
+    height: 50px;
     object-fit: cover;
   }
   .clickable-tile {
@@ -120,7 +120,6 @@
     font-size: 18px; /* Example size */
   }
 }
-
 
 @media (max-width: 600px) {
   .clickable-tile {
@@ -137,7 +136,7 @@
   }
   .user-image {
     width: 50px;
-    height: 50px; 
+    height: 50px;
     object-fit: cover;
   }
 
