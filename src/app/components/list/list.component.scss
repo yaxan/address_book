@@ -35,7 +35,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.8); // Optional: Add a background overlay
   }
   .content-container {
     min-height: 50vh;
@@ -59,8 +58,8 @@
   
   .user-card {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    justify-content: center;
+    align-items: center;
     text-align: center;
     transition: background-color 0.3s;
     background-color: #f1f1f1;
@@ -85,19 +84,19 @@
     margin-right: 15px;
     font-size: 1.2em;
     font-weight: bold;
-    -webkit-user-select: none;  /* Chrome, Safari, and Opera */
-    -moz-user-select: none;     /* Firefox */
-    -ms-user-select: none;      /* Internet Explorer/Edge */
-    user-select: none;          /* Disable selection */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     
     
   }
 
   .user-name {
-    margin-top: 15px; /* Replace with whatever value brings the alignment to your satisfaction */
-    -webkit-user-select: none;  /* Chrome, Safari, and Opera */
-    -moz-user-select: none;     /* Firefox */
-    -ms-user-select: none;      /* Internet Explorer/Edge */
+    margin-top: 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
   }
 
@@ -112,7 +111,7 @@
     
     .clickable-tile {
       flex-direction: column;
-      align-items: center; /* Center items horizontally in mobile view */
+      align-items: center;
       text-align: center;
     }
   
@@ -121,7 +120,7 @@
       margin-right: 0; 
     }
     .user-name {
-      margin-top: 0px; /* Replace with whatever value brings the alignment to your satisfaction */
+      margin-top: 0px;
     }
   }
   
