@@ -7,120 +7,112 @@
   padding: 20px;
   box-sizing: border-box;
 }
-  
-  .list {
-    width: 90%;
-    max-width: 1200px; 
-    max-height: 75vh; 
-    overflow-y: auto;
-    display: flex;
+
+.list {
+  width: 90%;
+  max-width: 1200px;
+  max-height: 75vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 8px;
+  position: relative;
+  &.loading {
+    .content-container {
+      visibility: hidden;
+    }
+  }
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-container {
+  width: calc(90% - 40px);
+  max-width: 1160px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #f5f5f5;
+  border-top: 1px solid #ddd;
+
+  .page-indicator {
+    font-weight: bold;
+  }
+}
+
+.user-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: background-color 0.3s;
+  background-color: #fcfcfc;
+
+  &:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+  }
+}
+
+.user-initials {
+  border-radius: 50%;
+  background-color: #673ab7;
+  color: white;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  font-size: 1.2em;
+  font-weight: bold;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.user-name {
+  margin-top: 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.clickable-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .clickable-tile {
     flex-direction: column;
-    background: white;
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-    border-radius: 8px;
-    position: relative;    
-    &.loading {
-      .content-container {
-        visibility: hidden;
-      }
-    }
-  }
-
-  .loading-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .pagination-container {
-    width: calc(90% - 40px);
-    max-width: 1160px; 
-    box-sizing: border-box; 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background: #f5f5f5;
-    border-top: 1px solid #ddd; 
-  
-    .page-indicator {
-      font-weight: bold;
-    }
-  }
-  
-  .user-card {
-    display: flex;
-    justify-content: center;
     align-items: center;
     text-align: center;
-    transition: background-color 0.3s;
-    background-color: #fcfcfc;
-  
-    &:hover {
-      background-color: #f5f5f5;
-      cursor: pointer;
-    }
-  
-
+    margin-top: auto;
   }
 
   .user-initials {
-    border-radius: 50%;
-    background-color: #673ab7;
-    color: white;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 15px;
-    font-size: 1.2em;
-    font-weight: bold;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    
-    
+    margin-bottom: 0px;
+    margin-right: 0;
   }
-
   .user-name {
-    margin-top: 15px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    margin-top: 0px;
   }
-
-  .clickable-tile {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  @media (max-width: 600px) {
-    
-    .clickable-tile {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      margin-top: auto;
-    }
-  
-    .user-initials {
-      margin-bottom: 0px;
-      margin-right: 0; 
-    }
-    .user-name {
-      margin-top: 0px;
-    }
-  }
-  
-  
-  
+}

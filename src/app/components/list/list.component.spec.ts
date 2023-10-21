@@ -14,31 +14,31 @@ describe('ListComponent', () => {
   let fixture: ComponentFixture<ListComponent>;
   let userService: UserService;
   const mockUsers: User[] = [
-      {
-        login: { uuid: 'sample-uuid-1' },
-        name: { title: 'ms', first: 'susan', last: 'doe' },
-        phone: '123-456-7890',
-        email: 'susan.doe@example.com',
-        location: { city: 'city', state: 'state', country: 'country' },
-        picture: {
-          large: "https://randomuser.me/api/portraits/men/75.jpg",
-          medium: "https://randomuser.me/api/portraits/med/men/75.jpg",
-          thumbnail: "https://randomuser.me/api/portraits/thumb/men/75.jpg"
-        }
+    {
+      login: { uuid: 'sample-uuid-1' },
+      name: { title: 'ms', first: 'susan', last: 'doe' },
+      phone: '123-456-7890',
+      email: 'susan.doe@example.com',
+      location: { city: 'city', state: 'state', country: 'country' },
+      picture: {
+        large: 'https://randomuser.me/api/portraits/men/75.jpg',
+        medium: 'https://randomuser.me/api/portraits/med/men/75.jpg',
+        thumbnail: 'https://randomuser.me/api/portraits/thumb/men/75.jpg',
       },
-      {
-        login: { uuid: 'sample-uuid-2' },
-        name: { title: 'mr', first: 'john', last: 'doe' },
-        phone: '123-456-7890',
-        email: 'john.doe@example.com',
-        location: { city: 'city', state: 'state', country: 'country' },
-        picture: {
-          large: "https://randomuser.me/api/portraits/men/75.jpg",
-          medium: "https://randomuser.me/api/portraits/med/men/75.jpg",
-          thumbnail: "https://randomuser.me/api/portraits/thumb/men/75.jpg"
-        }
-      }
-    ]
+    },
+    {
+      login: { uuid: 'sample-uuid-2' },
+      name: { title: 'mr', first: 'john', last: 'doe' },
+      phone: '123-456-7890',
+      email: 'john.doe@example.com',
+      location: { city: 'city', state: 'state', country: 'country' },
+      picture: {
+        large: 'https://randomuser.me/api/portraits/men/75.jpg',
+        medium: 'https://randomuser.me/api/portraits/med/men/75.jpg',
+        thumbnail: 'https://randomuser.me/api/portraits/thumb/men/75.jpg',
+      },
+    },
+  ];
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
@@ -46,12 +46,11 @@ describe('ListComponent', () => {
         RouterTestingModule,
         MatCardModule,
         MatGridListModule,
-        MatToolbarModule
+        MatToolbarModule,
       ],
-      declarations: [ ListComponent ],
-      providers: [ UserService ]
-    })
-    .compileComponents();
+      declarations: [ListComponent],
+      providers: [UserService],
+    }).compileComponents();
   });
 
   beforeEach(() => {

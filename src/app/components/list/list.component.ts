@@ -9,30 +9,31 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
   allUsers: User[] = [];
   users: User[] = [];
   currentPage = 1;
-  pageSize = 10;  // Number of items per page
+  pageSize = 10; // Number of items per page
   isLoading = true;
   isXSmall: Observable<boolean>;
   isSmall: Observable<boolean>;
 
-  constructor(private userService: UserService, private breakpointObserver: BreakpointObserver, private router: Router) {
-    this.isXSmall = this.breakpointObserver.observe(Breakpoints.XSmall)
-      .pipe(
-        map(result => result.matches),
-        shareReplay()
-      );
+  constructor(
+    private userService: UserService,
+    private breakpointObserver: BreakpointObserver,
+    private router: Router,
+  ) {
+    this.isXSmall = this.breakpointObserver.observe(Breakpoints.XSmall).pipe(
+      map((result) => result.matches),
+      shareReplay(),
+    );
 
-    this.isSmall = this.breakpointObserver.observe(Breakpoints.Small)
-      .pipe(
-        map(result => result.matches),
-        shareReplay()
-      );
-
+    this.isSmall = this.breakpointObserver.observe(Breakpoints.Small).pipe(
+      map((result) => result.matches),
+      shareReplay(),
+    );
   }
 
   ngOnInit(): void {
@@ -50,17 +51,16 @@ export class ListComponent implements OnInit {
 
   fetchUsers(): void {
     this.isLoading = true;
-    this.userService.fetchUsers().subscribe(users => {
+    this.userService.fetchUsers().subscribe((users) => {
       this.allUsers = users;
-      this.userService.setUsers(this.allUsers);  // If you still need to store them in local storage
+      this.userService.setUsers(this.allUsers); // If you still need to store them in local storage
       this.paginateUsers();
       this.isLoading = false;
     });
   }
-  
 
   nextPage(): void {
-    if ((this.currentPage * this.pageSize) < this.allUsers.length) {
+    if (this.currentPage * this.pageSize < this.allUsers.length) {
       this.currentPage++;
       this.paginateUsers();
     }

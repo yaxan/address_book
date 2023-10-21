@@ -14,11 +14,7 @@ describe('AppComponent', () => {
         MatToolbarModule,
         MatProgressSpinnerModule,
       ],
-      declarations: [
-        AppComponent,
-        HeaderComponent,
-        FooterComponent,
-      ],
+      declarations: [AppComponent, HeaderComponent, FooterComponent],
     }).compileComponents();
   });
 

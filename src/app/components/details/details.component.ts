@@ -6,25 +6,35 @@ import { User } from '../../models/user.model';
 @Component({
   selector: 'app-details',
   template: `
-  <div class="container" fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
-    <div *ngIf="user">
-      <img [src]="user.picture.large" alt="User Image" loading="lazy">
-      <h1>{{ user.name.title }} {{ user.name.first }} {{ user.name.last }}</h1>
-      <p>Phone: {{ user.phone }}</p>
-      <p>Email: {{ user.email }}</p>
-      <p>Location: {{ user.location.city }}, {{ user.location.state }}, {{ user.location.country }}</p>
+    <div
+      class="container"
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      fxFlexFill
+    >
+      <div *ngIf="user">
+        <img [src]="user.picture.large" alt="User Image" loading="lazy" />
+        <h1>
+          {{ user.name.title }} {{ user.name.first }} {{ user.name.last }}
+        </h1>
+        <p>Phone: {{ user.phone }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>
+          Location: {{ user.location.city }}, {{ user.location.state }},
+          {{ user.location.country }}
+        </p>
+      </div>
     </div>
-  </div>
   `,
-  styleUrls: ['./details.component.scss']
+  styleUrls: ['./details.component.scss'],
 })
 export class DetailsComponent implements OnInit {
   user?: User;
 
   constructor(
     private route: ActivatedRoute,
-    private userService: UserService
-  ) { }
+    private userService: UserService,
+  ) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');

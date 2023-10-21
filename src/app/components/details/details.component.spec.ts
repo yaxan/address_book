@@ -16,25 +16,26 @@ describe('DetailsComponent', () => {
     email: 'brad.gibson@example.com',
     location: { city: 'kilcoole', state: 'waterford', country: 'ireland' },
     picture: {
-      large: "https://randomuser.me/api/portraits/men/75.jpg",
-      medium: "https://randomuser.me/api/portraits/med/men/75.jpg",
-      thumbnail: "https://randomuser.me/api/portraits/thumb/men/75.jpg"
-    }
+      large: 'https://randomuser.me/api/portraits/men/75.jpg',
+      medium: 'https://randomuser.me/api/portraits/med/men/75.jpg',
+      thumbnail: 'https://randomuser.me/api/portraits/thumb/men/75.jpg',
+    },
   };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      declarations: [ DetailsComponent ],
+      declarations: [DetailsComponent],
       providers: [
         {
           provide: ActivatedRoute,
-          useValue: { snapshot: { paramMap: convertToParamMap({ id: 'sample-uuid' }) } }
+          useValue: {
+            snapshot: { paramMap: convertToParamMap({ id: 'sample-uuid' }) },
+          },
         },
-        UserService
-      ]
-    })
-    .compileComponents();
+        UserService,
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -51,7 +52,7 @@ describe('DetailsComponent', () => {
 
   it('should retrieve user details on init', () => {
     component.ngOnInit();
-    
+
     expect(userService.getUserById).toHaveBeenCalledWith('sample-uuid');
     expect(component.user).toEqual(mockUser);
   });

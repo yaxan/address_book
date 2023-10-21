@@ -1,5 +1,8 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+} from '@angular/common/http/testing';
 import { UserService } from './user.service';
 import { User } from '../models/user.model';
 
@@ -10,7 +13,7 @@ describe('UserService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [UserService]
+      providers: [UserService],
     });
     service = TestBed.inject(UserService);
     httpMock = TestBed.inject(HttpTestingController);
@@ -35,10 +38,10 @@ describe('UserService', () => {
         phone: '123-456-7890',
         location: { city: 'Anytown', state: 'Anystate', country: 'Country' },
         picture: {
-          large: "https://randomuser.me/api/portraits/men/75.jpg",
-          medium: "https://randomuser.me/api/portraits/med/men/75.jpg",
-          thumbnail: "https://randomuser.me/api/portraits/thumb/men/75.jpg"
-        }
+          large: 'https://randomuser.me/api/portraits/men/75.jpg',
+          medium: 'https://randomuser.me/api/portraits/med/men/75.jpg',
+          thumbnail: 'https://randomuser.me/api/portraits/thumb/men/75.jpg',
+        },
       },
       {
         login: { uuid: '2' },
@@ -47,21 +50,23 @@ describe('UserService', () => {
         phone: '123-456-7891',
         location: { city: 'Anytown', state: 'Somestate', country: 'Country' },
         picture: {
-          large: "https://randomuser.me/api/portraits/men/75.jpg",
-          medium: "https://randomuser.me/api/portraits/med/men/75.jpg",
-          thumbnail: "https://randomuser.me/api/portraits/thumb/men/75.jpg"
-        }
+          large: 'https://randomuser.me/api/portraits/men/75.jpg',
+          medium: 'https://randomuser.me/api/portraits/med/men/75.jpg',
+          thumbnail: 'https://randomuser.me/api/portraits/thumb/men/75.jpg',
+        },
       },
     ];
 
     const apiResponse = { results: dummyUsers };
 
-    service.fetchUsers().subscribe(users => {
+    service.fetchUsers().subscribe((users) => {
       expect(users.length).toBe(2);
       expect(users).toEqual(dummyUsers);
     });
 
-    const request = httpMock.expectOne('https://randomuser.me/api/?seed=nuvalence&results=50');
+    const request = httpMock.expectOne(
+      'https://randomuser.me/api/?seed=nuvalence&results=50',
+    );
     expect(request.request.method).toBe('GET');
     request.flush(apiResponse);
   });

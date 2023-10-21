@@ -19,10 +19,10 @@ export class UserService {
 
     const url = `${this.apiUrl}&results=50`;
     return this.http.get<any>(url).pipe(
-      tap((data: { results: User[] | null; }) => {
+      tap((data: { results: User[] | null }) => {
         this.usersCache = data.results;
       }),
-      map(data => data.results as User[])
+      map((data) => data.results as User[]),
     );
   }
 
@@ -37,6 +37,6 @@ export class UserService {
 
   getUserById(id: string): User | undefined {
     const users = this.getUsers();
-    return users.find(user => user.login.uuid === id);
+    return users.find((user) => user.login.uuid === id);
   }
 }

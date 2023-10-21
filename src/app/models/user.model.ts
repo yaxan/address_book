@@ -18,5 +18,5 @@ export interface User {
     large: string;
     medium: string;
     thumbnail: string;
-  }
+  };
 }
