@@ -8,6 +8,10 @@ import { User } from '../../models/user.model';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('ListComponent', () => {
   let component: ListComponent;
@@ -47,6 +51,10 @@ describe('ListComponent', () => {
         MatCardModule,
         MatGridListModule,
         MatToolbarModule,
+        MatFormFieldModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        NoopAnimationsModule,
       ],
       declarations: [ListComponent],
       providers: [UserService],
