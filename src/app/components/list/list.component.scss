@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  flex-direction: column; /* makes sure children are vertically stacked */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -21,7 +21,7 @@
     position: relative;    
     &.loading {
       .content-container {
-        visibility: hidden; // Hide the content while keeping the space during loading
+        visibility: hidden;
       }
     }
   }
@@ -38,8 +38,8 @@
   }
 
   .pagination-container {
-    width: calc(90% - 40px); /* Adjust based on your desired width and accounting for padding */
-    max-width: 1160px; /* Adjust based on your desired width */
+    width: calc(90% - 40px);
+    max-width: 1160px; 
     box-sizing: border-box; 
     display: flex;
     justify-content: space-between;

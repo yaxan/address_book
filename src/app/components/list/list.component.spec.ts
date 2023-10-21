@@ -13,8 +13,7 @@ describe('ListComponent', () => {
   let component: ListComponent;
   let fixture: ComponentFixture<ListComponent>;
   let userService: UserService;
-  const mockUsers: { results: User[] } = {
-    results: [
+  const mockUsers: User[] = [
       {
         login: { uuid: 'sample-uuid-1' },
         name: { title: 'ms', first: 'susan', last: 'doe' },
@@ -40,8 +39,6 @@ describe('ListComponent', () => {
         }
       }
     ]
-  };
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
@@ -75,6 +72,6 @@ describe('ListComponent', () => {
     component.ngOnInit();
 
     expect(userService.fetchUsers).toHaveBeenCalled();
-    expect(component.users).toEqual(mockUsers.results);
+    expect(component.users).toEqual(mockUsers);
   });
 });
