@@ -2,9 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ListComponent } from './list.component';
-import { UserService } from '../user.service';
+import { UserService } from '../../services/user.service';
 import { of } from 'rxjs';
-import { User } from '../models/user.model';
+import { User } from '../../models/user.model';
 
 describe('ListComponent', () => {
   let component: ListComponent;

@@ -2,8 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, convertToParamMap } from '@angular/router';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { DetailsComponent } from './details.component';
-import { UserService } from '../user.service';
-import { User } from '../models/user.model';
+import { UserService } from '../../services/user.service';
+import { User } from '../../models/user.model';
 
 describe('DetailsComponent', () => {
   let component: DetailsComponent;
