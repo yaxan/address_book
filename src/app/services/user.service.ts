@@ -18,11 +18,11 @@ export class UserService {
     }
 
     const url = `${this.apiUrl}&results=50`;
-    return this.http.get<any>(url).pipe(
+    return this.http.get<{ results: User[] | null }>(url).pipe(
       tap((data: { results: User[] | null }) => {
         this.usersCache = data.results;
       }),
-      map((data) => data.results as User[]),
+      map((data: { results: User[] | null }) => data.results as User[]),
     );
   }
 

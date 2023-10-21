@@ -40,7 +40,7 @@ export class ListComponent implements OnInit {
     this.fetchUsers();
   }
 
-  viewDetails(user: any) {
+  viewDetails(user: User) {
     this.router.navigate(['/details', user.login.uuid]);
   }
 
