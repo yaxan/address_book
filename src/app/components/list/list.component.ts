@@ -154,6 +154,11 @@ export class ListComponent implements OnInit {
     return this.currentPage;
   }
 
+  // Checks if the current page is the last page
+  get isLastPage(): boolean {
+    return this.currentPage > Math.ceil(this.users.length / this.pageSize) - 1;
+  }
+
   /**
    * Initializes the search functionality.
    * Listens for changes in the search input and filters the user list accordingly.

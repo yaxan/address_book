@@ -82,7 +82,7 @@
       mat-flat-button
       color="primary"
       (click)="nextPage()"
-      [disabled]="currentPage === 5 || users.length < 10"
+      [disabled]="isLastPage"
     >
       Next
     </button>
