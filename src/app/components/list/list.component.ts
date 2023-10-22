@@ -154,9 +154,14 @@ export class ListComponent implements OnInit {
     return this.currentPage;
   }
 
+  // Gets total # of pages
+  get totalPages(): number {
+    return Math.ceil(this.users.length / this.pageSize);
+  }
+
   // Checks if the current page is the last page
   get isLastPage(): boolean {
-    return this.currentPage > Math.ceil(this.users.length / this.pageSize) - 1;
+    return this.currentPage >= this.totalPages;
   }
 
   /**
@@ -180,7 +185,11 @@ export class ListComponent implements OnInit {
             // Combine the user's first and last name.
             const fullName = user.name.first + ' ' + user.name.last;
             // Check if the combined name includes the search query (case-insensitive).
-            return fullName.toLowerCase().includes(query.toLowerCase());
+            return (
+              fullName.toLowerCase().includes(query.toLowerCase()) ||
+              user.email.toLowerCase().includes(query.toLowerCase()) ||
+              user.phone.toLowerCase().includes(query.toLowerCase())
+            );
           });
         }
 
