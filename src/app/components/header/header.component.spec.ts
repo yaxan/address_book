@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -9,7 +10,7 @@ describe('HeaderComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [MatToolbarModule],
+      imports: [MatToolbarModule, MatIconModule],
       declarations: [HeaderComponent],
     });
     fixture = TestBed.createComponent(HeaderComponent);

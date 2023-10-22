@@ -5,6 +5,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatIconModule } from '@angular/material/icon';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -13,6 +14,7 @@ describe('AppComponent', () => {
         RouterTestingModule,
         MatToolbarModule,
         MatProgressSpinnerModule,
+        MatIconModule,
       ],
       declarations: [AppComponent, HeaderComponent, FooterComponent],
     }).compileComponents();
