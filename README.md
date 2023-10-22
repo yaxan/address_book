@@ -30,7 +30,8 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Future Work
 Given more time, the following features could be added to the application:
 
-* Design: The current design is definitely not something I'd keep, needs something more sleek and modern.
-* User sorting: Allow users to sort the user list by name or email.
-* User editing: Allow users to edit user information and save changes to their cached contacts.
-* User authentication: Implement user authentication to restrict access to certain features and protect user data.
+* Didn't catch that some packages I used were deprecated until it was too late, need to replace certain things like flex-layouts
+* The current design is definitely not something I'd keep, needs something more sleek and modern.
+* Allow users to sort the user list by name or email.
+* Allow users to edit user information and save changes to their cached contacts.
+* Implement user authentication to restrict access to certain features and protect user data.
