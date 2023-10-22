@@ -36,3 +36,4 @@ Given more time, the following features could be added to the application:
 * Allow users to sort the user list by name or email.
 * Allow users to edit user information and save changes to their cached contacts.
 * Implement user authentication to restrict access to certain features and protect user data.
+* Considered adding some sort of API for getting directions to contact address, could be cool
