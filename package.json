@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:gh-pages": "ng build --configuration production --base-href https://yaxan.github.io/address_book/",
+    "deploy" : "ngh --dir=dist/address-book",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "eslint '*/**/*.{js,ts,tsx,html}' --quiet --fix",
