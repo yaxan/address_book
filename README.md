@@ -1,7 +1,7 @@
 # Address Book
 
 This project is an AddressBook application built with Angular 16.2.7, TypeScript, and the Material Design framework. The application allows users to view a list of users, search for users, and view user details.
-https://yaxan.github.io/address_book/
+Available for view at https://yaxan.github.io/address_book/
 
 ## Development server
 
