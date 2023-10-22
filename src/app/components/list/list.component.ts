@@ -16,7 +16,7 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 export class ListComponent implements OnInit {
   allUsers: User[] = [];
   users: User[] = [];
-  displayedUsers: User[] = []; // This will only hold the users for the current page
+  displayedUsers: User[] = [];
   currentPage = 1;
   pageSize = 10;
   isLoading = true;
@@ -65,23 +65,22 @@ export class ListComponent implements OnInit {
 
   fetchUsers(): void {
     this.isLoading = true;
-    this.userService.fetchUsers().subscribe(
-      (users) => {
+    this.userService.fetchUsers().subscribe({
+      next: (users) => {
         this.allUsers = users;
-        this.users = [...this.allUsers]; // Ensure 'users' also has the initial full set
-        this.userService.setUsers(this.allUsers); // If you still need to store them in local storage
+        this.users = [...this.allUsers];
+        this.userService.setUsers(this.allUsers);
 
-        // Now, prepare the initial page of users for display
-        this.currentPage = 1; // Start from the first page
-        this.paginateUsers(); // This will slice the first page of users and put them in 'displayedUsers'
+        this.currentPage = 1;
+        this.paginateUsers();
 
-        this.isLoading = false; // Loading is done
+        this.isLoading = false;
       },
-      (error) => {
-        this.isLoading = false; // Even on error, loading should stop
+      error: (error) => {
+        this.isLoading = false;
         console.error('An error occurred when fetching users: ', error);
       },
-    );
+    });
   }
 
   nextPage(): void {
@@ -107,20 +106,17 @@ export class ListComponent implements OnInit {
       .pipe(debounceTime(300), distinctUntilChanged())
       .subscribe((query) => {
         if (!query) {
-          this.users = [...this.allUsers]; // if there's no query, the full list is considered
+          this.users = [...this.allUsers];
         } else {
-          // if there's a query, we filter the allUsers list
           this.users = this.allUsers.filter((user) => {
             const fullName = user.name.first + ' ' + user.name.last;
             return fullName.toLowerCase().includes(query.toLowerCase());
           });
         }
 
-        // Regardless of the above, we now have a 'users' list we want to paginate
         this.currentPage = 1;
         this.paginateUsers();
 
-        // Since we changed what's being displayed, we need Angular to check the view
         this.cd.detectChanges();
       });
   }
