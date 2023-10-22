@@ -12,7 +12,7 @@ The following features have been implemented in the application:
 
 * User list: Displays a list of users with their name, email, and profile picture.
   * The app currently caches 50 results and paginates those, originally I had it making a new API call per page but I didn't like the microsecond loading between each page.
-* User search: Allows users to search for users by name or email.
+* User search: Allows users to search for users by name, email, or phone number.
 * User details: Displays detailed information about a selected user, including their name, email, phone number, and location.
 
 ## Build
