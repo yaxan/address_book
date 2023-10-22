@@ -5,7 +5,7 @@ Available for view at https://yaxan.github.io/address_book/
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `npm run start` or `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Features
 The following features have been implemented in the application:
@@ -26,7 +26,7 @@ The following features have been implemented in the application:
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `npm run test` or `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Future Work
 Given more time, the following features could be added to the application:
