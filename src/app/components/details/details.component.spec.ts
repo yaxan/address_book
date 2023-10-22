@@ -4,6 +4,8 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { DetailsComponent } from './details.component';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user.model';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 
 describe('DetailsComponent', () => {
   let component: DetailsComponent;
@@ -24,7 +26,7 @@ describe('DetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule, MatCardModule, MatIconModule],
       declarations: [DetailsComponent],
       providers: [
         {
